@@ -29,12 +29,10 @@ let askForName = input.question(candidateName)
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-console.log(question)
-console.log(input)
-response = (candidateAnswer)
-console.log(response)
+  for(i = 0; i < questions.length; i++){
+    candidateAnswers.push (input.question(questions[i]));
 }
-
+}
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
@@ -46,8 +44,27 @@ if (candidateAnswer === correctAnswer) {
 
 
 
-  let grade;  //TODO 3.2 use this variable to calculate the candidates score.
-
+  let grade = " "  
+  let numOfCorrectAnswers = 0
+  let numberOfQuizQuestions = questions.length;
+  //TODO 3.2 use this variable to calculate the candidates score.
+  for(let i = 0; i < correctAnswers.length; i++){
+    if(correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
+      console.log(`Question ${i+1} = You answered ${candidateAnswers[i]}. ${correctAnswers[i]} is the correct answer. = Pass`);
+      numOfCorrectAnswers++;
+    }else {
+      console.log(`Question ${i+1} = You answered ${candidateAnswers[i]}. ${correctAnswers[i]} is the correct answer. = Fail`);
+      console.log("Try again please");
+    }
+  }
+  
+  grade = (numOfCorrectAnswers/numberOfQuizQuestions)*100;
+  console.log(`Your grade is: ${grade}`);
+  if(grade < 80){
+      console.log(`Your grade is: ${grade}. You have failed this test. `)
+  }else {
+    console.log(`Your grade is:  ${grade}. Congrats, you passed! `);
+  }
 
   return grade;
 }
