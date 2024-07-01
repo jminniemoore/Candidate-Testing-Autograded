@@ -19,12 +19,12 @@ let questions = [
   "What is the minimum crew size for the ISS? "
 ];
 let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3" ];
-let candidateAnswers;
+let candidateAnswers = " "
 
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-let askForName = input.question(candidateName)
+let askForName = input.question("What is your name?: ")
 }
 
 function askQuestion() {
