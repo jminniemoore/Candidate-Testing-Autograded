@@ -18,19 +18,25 @@ let questions = [
   "Given the array [8, 'Orbit', 'Trajectory', 45], what entry is at index 2? ",
   "What is the minimum crew size for the ISS? "
 ];
-let correctAnswers = ["Sally Ride", "true", "40", "Trajectory", "3" ];
-let candidateAnswers;
+let correctAnswers = [
+"Sally Ride",
+'true',
+"40",
+"Trajectory",
+"3", 
+ ];
+let candidateAnswers = [];
 
 
 function askForName() {
   // TODO 1.1b: Ask for candidate's name //
-let askForName = input.question(candidateName)
+askForName = input.question("What is your name?: ")
 }
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
   for(i = 0; i < questions.length; i++){
-    candidateAnswers.push (input.question(questions[i]));
+    (input.question(questions[i]));
 }
 }
 function gradeQuiz(candidateAnswers) {
@@ -43,26 +49,26 @@ if (candidateAnswer === correctAnswer) {
 }
 
 
+let numOfCorrectAnswers = 0
+let numberOfQuizQuestions = questions.length;
 
-  let grade = " "  
-  let numOfCorrectAnswers = 0
-  let numberOfQuizQuestions = questions.length;
+let grade = (numOfCorrectAnswers/numberOfQuizQuestions)*100;
   //TODO 3.2 use this variable to calculate the candidates score.
   for(let i = 0; i < correctAnswers.length; i++){
-    if(correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
-      console.log(`Question ${i+1} = You answered ${candidateAnswers[i]}. ${correctAnswers[i]} is the correct answer. = Pass`);
+    if(correctAnswers === candidateAnswers){
+      console.log(`Question ${i+1} = Good job! You answered ${candidateAnswer.toLowerCase()} and ${correctAnswer.toLowerCase()} is the correct answer.`);
       numOfCorrectAnswers++;
     }else {
-      console.log(`Question ${i+1} = You answered ${candidateAnswers[i]}. ${correctAnswers[i]} is the correct answer. = Fail`);
+      console.log(`Question ${i+1} = ${candidateAnswer} is not the correct answer.`);
       console.log("Try again please");
     }
   }
   
-  grade = (numOfCorrectAnswers/numberOfQuizQuestions)*100;
   console.log(`Your grade is: ${grade}`);
   if(grade < 80){
       console.log(`Your grade is: ${grade}. You have failed this test. `)
-  }else {
+  }
+  else{
     console.log(`Your grade is:  ${grade}. Congrats, you passed! `);
   }
 
@@ -72,7 +78,7 @@ if (candidateAnswer === correctAnswer) {
 function runProgram() {
   askForName();
   // TODO 1.1c: Greet candidate using their name //
-   console.log("Greetings," + askForName);
+   console.log("Greetings, " + askForName);
   askQuestion();
   gradeQuiz(this.candidateAnswers);
 }
