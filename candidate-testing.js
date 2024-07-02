@@ -55,11 +55,10 @@ function gradeQuiz(candidateAnswers) {
     }
 }
 }
-  let grade; //TODO 3.2 use this variable to calculate the candidates score.
+  let grade;//TODO 3.2 use this variable to calculate the candidates score.
 if (correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
 
 }
-grade = (candidateScore)
 candidateScore = (numberOfCorrectAnswers)/(numberOfQuizQuestions)*100
 
 function runProgram() {
