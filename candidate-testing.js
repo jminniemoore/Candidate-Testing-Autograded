@@ -35,45 +35,32 @@ askForName = input.question("What is your name?: ")
 
 function askQuestion() {
   // TODO 1.2b: Ask candidate the question and assign the response as candidateAnswer //
-  for(i = 0; i < questions.length; i++){
-    (input.question(questions[i]));
+for (i = 0; i < questions.length; i++){
+  candidateAnswers.push (input.question(questions[i]))
 }
 }
+
 function gradeQuiz(candidateAnswers) {
 
   // TODO 1.2c: Let the candidate know if they have answered the question correctly or incorrectly // 
-if (candidateAnswer === correctAnswer) {
-  console.log(`Correct, ${correctAnswer} is the first woman in space!`)
-} else {
-  console.log("No, that is not correct. Try again.")
-}
-
-
-let numOfCorrectAnswers = 0
-let numberOfQuizQuestions = questions.length;
-
-let grade = (numOfCorrectAnswers/numberOfQuizQuestions)*100;
-  //TODO 3.2 use this variable to calculate the candidates score.
-  for(let i = 0; i < correctAnswers.length; i++){
-    if(correctAnswers === candidateAnswers){
-      console.log(`Question ${i+1} = Good job! You answered ${candidateAnswer.toLowerCase()} and ${correctAnswer.toLowerCase()} is the correct answer.`);
-      numOfCorrectAnswers++;
-    }else {
-      console.log(`Question ${i+1} = ${candidateAnswer} is not the correct answer.`);
-      console.log("Try again please");
-    }
-  }
+  let correctAnswerCount = 0;
   
-  console.log(`Your grade is: ${grade}`);
-  if(grade < 80){
-      console.log(`Your grade is: ${grade}. You have failed this test. `)
-  }
-  else{
-    console.log(`Your grade is:  ${grade}. Congrats, you passed! `);
-  }
-
-  return grade;
+  for(let i=0; i < correctAnswers.length; i++){
+    if(correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
+      console.log(`Question ${i+1} = Your answer: ${candidateAnswers[i]}. Correct answer: ${correctAnswers[i]} - Question Passed`);
+      correctAnswerCount ++;
+    }else {
+      console.log(`Question ${i+1} = Your answer: ${candidateAnswers[i]}. Correct answer: ${correctAnswers[i]} - Question Failed`);
+      console.log("You're close. Try again");
+    }
 }
+}
+  let grade; //TODO 3.2 use this variable to calculate the candidates score.
+if (correctAnswers[i].toLowerCase() === candidateAnswers[i].toLowerCase()){
+
+}
+grade = (candidateScore)
+candidateScore = (numberOfCorrectAnswers)/(numberOfQuizQuestions)*100
 
 function runProgram() {
   askForName();
